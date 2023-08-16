@@ -1,0 +1,8 @@
+tableau_server_management:
+    host: <https://example.com>
+    username: <admin>
+    password: <password>
+    sleep_interval_seconds: <30>
+
+metrics:
+    port: <8000>
