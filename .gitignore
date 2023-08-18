@@ -53,4 +53,5 @@ MANIFEST
 .conda*/
 .python-version
 
-config.yaml
+/config.yaml
+/config.yml

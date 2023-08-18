@@ -60,18 +60,27 @@ Install it from PyPI
 Usage
 -----
 
+**Python**
+
 .. code-block:: python
 
     from tableau_prometheus_exporter.server import Server
 
     Server(config).start_and_run_forever()
 
-or
+**Command Line**
 
 .. code-block:: bash
 
     $ python -m tableau_prometheus_exporter --h
 
+**Docker**
+
+.. code-block:: bash
+
+    $ docker run --rm -p 8000:8000 -v ${PWD}/config.yaml:/app/config.yaml tableau-prometheus-exporter --config-file config.yaml
+
+Go to http://localhost:8000/ to see the metrics.
 
 -------------
 Configuration
