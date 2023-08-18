@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 concurrency:
   group: >-
@@ -97,7 +98,28 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
 
-  publish:
+  changelog:
+    needs: finalize
+    if: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags/') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate Changelog
+        uses: pfandie/generate-changelog-action@v1
+        id: changelog
+        with:
+          next_tag: ${{ github.ref_name }}
+          output_file: "CHANGELOG.rst"
+          write_file: true
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Update CHANGELOG.rst"
+          branch: chore/update-changelog
+          delete-branch: true
+          title: "Update CHANGELOG"
+
+  publish-pypi:
     needs: finalize
     if: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags/') }}
     runs-on: ubuntu-latest
@@ -116,3 +138,30 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         run: pipx run tox -e publish
+
+  publish-docker:
+    needs: publish-pypi
+    if: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags/') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          config: .github/buildkitd.toml
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.FREE_NOW_GITHUB_USER }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: "ghcr.io/freenowtech/tableau-prometheus-exporter:latest,ghcr.io/freenowtech/tableau-prometheus-exporter:${{ github.ref_name }}"
+          build-args: "VERSION===${{ github.ref_name }}"
+          platforms: linux/amd64,linux/arm64
