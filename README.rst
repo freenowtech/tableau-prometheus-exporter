@@ -60,18 +60,27 @@ Install it from PyPI
 Usage
 -----
 
+**Python**
+
 .. code-block:: python
 
     from tableau_prometheus_exporter.server import Server
 
     Server(config).start_and_run_forever()
 
-or
+**Command Line**
 
 .. code-block:: bash
 
     $ python -m tableau_prometheus_exporter --h
 
+**Docker**
+
+.. code-block:: bash
+
+    $ docker run --rm -p 8000:8000 -v ${PWD}/config.yaml:/app/config.yaml tableau-prometheus-exporter --config-file config.yaml
+
+Go to http://localhost:8000/ to see the metrics.
 
 -------------
 Configuration
@@ -84,11 +93,12 @@ A sample configuration can be found at
 Contributing
 ------------
 
-Please refer to the `CONTRIBUTING <https://github.com/freenowtech/tableau-prometheus-exporter/blob/main/CONTRIBUTING.rst>`_
+Please refer to the `CONTRIBUTING <https://github.com/freenowtech/tableau-prometheus-exporter/blob/main/CONTRIBUTING.md>`_
 file for information about how to get involved. We welcome issues, questions, and pull requests.
 
+----
 Note
-====
+----
 
 This project has been set up using PyScaffold 4.5. For details and usage
 information on PyScaffold see https://pyscaffold.org/.
