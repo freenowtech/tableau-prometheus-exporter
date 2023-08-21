@@ -1,6 +1,9 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Update
+- Update CHANGELOG.md
+
 
 <a name="0.2.1"></a>
 ## [0.2.1] - 2023-08-18
