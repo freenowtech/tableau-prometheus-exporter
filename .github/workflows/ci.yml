@@ -113,7 +113,7 @@ jobs:
           ref: 'main'
           fetch-depth: 0
       - name: Generate Changelog
-        uses: sergioasantiago/generate-changelog-action@main
+        uses: pfandie/generate-changelog-action@v1
         id: changelog
         with:
           output_file: CHANGELOG.md

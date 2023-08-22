@@ -3,6 +3,12 @@ tableau_server_management:
     username: <admin>
     password: <password>
     sleep_interval_seconds: <30>
+    bad_statuses:
+        - Unlicensed
+        - Degraded
+        - Error
+        - Stopped
+        - Status Unavailable
 
 metrics:
     port: <8000>
