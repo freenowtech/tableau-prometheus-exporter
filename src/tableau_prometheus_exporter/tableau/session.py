@@ -18,9 +18,9 @@ HEADERS = {"content-type": "application/json"}
 
 class TableauSession:
     def __init__(self, config: Dict):
-        self.host = config["tableau_server_management"]["host"]
-        self.username = config["tableau_server_management"]["username"]
-        self.password = config["tableau_server_management"]["password"]
+        self.host = config["host"]
+        self.username = config["username"]
+        self.password = config["password"]
 
     def __enter__(self):
         self.session = self._login()
