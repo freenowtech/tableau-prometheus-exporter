@@ -2,6 +2,19 @@
 ## [Unreleased]
 
 
+<a name="0.3.1"></a>
+## [0.3.1] - 2023-08-22
+### Fix
+- Fix configuration fetch
+
+### Update
+- Update CHANGELOG.md
+
+### Pull Requests
+- Merge pull request [#9](https://github.com/freenowtech/tableau-prometheus-exporter/issues/9) from freenowtech/fix/hotfix_config_fetch
+- Merge pull request [#8](https://github.com/freenowtech/tableau-prometheus-exporter/issues/8) from freenowtech/chore/update-changelog
+
+
 <a name="0.3.0"></a>
 ## [0.3.0] - 2023-08-22
 ### Add
@@ -41,7 +54,8 @@
 - First Commit
 
 
-[Unreleased]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.3.0...HEAD
+[Unreleased]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.3.1...HEAD
+[0.3.1]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.2.2...0.3.0
 [0.2.2]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.2.1...0.2.2
 [0.2.1]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.1.0...0.2.1
