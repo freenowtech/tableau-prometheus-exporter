@@ -13,11 +13,9 @@ class MockResponse:
 @pytest.fixture
 def mock_config():
     return {
-        "tableau_server_management": {
-            "host": "https://test.local:8850",
-            "username": "test",
-            "password": "passwd",
-        }
+        "host": "https://test.local:8850",
+        "username": "test",
+        "password": "passwd",
     }
 
 
