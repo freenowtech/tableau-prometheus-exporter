@@ -2,6 +2,19 @@
 ## [Unreleased]
 
 
+<a name="0.3.2"></a>
+## [0.3.2] - 2023-08-23
+### Improve
+- Improve README and add more samples
+
+### Update
+- Update CHANGELOG.md
+
+### Pull Requests
+- Merge pull request [#11](https://github.com/freenowtech/tableau-prometheus-exporter/issues/11) from freenowtech/chore/improve_readme_add_samples
+- Merge pull request [#10](https://github.com/freenowtech/tableau-prometheus-exporter/issues/10) from freenowtech/chore/update-changelog
+
+
 <a name="0.3.1"></a>
 ## [0.3.1] - 2023-08-22
 ### Fix
@@ -54,7 +67,8 @@
 - First Commit
 
 
-[Unreleased]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.3.1...HEAD
+[Unreleased]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.3.2...HEAD
+[0.3.2]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.3.1...0.3.2
 [0.3.1]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.2.2...0.3.0
 [0.2.2]: https://github.com/freenowtech/tableau-prometheus-exporter/compare/0.2.1...0.2.2
