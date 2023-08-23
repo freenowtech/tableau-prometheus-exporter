@@ -14,7 +14,7 @@ DEFAULT_METRICS_PORT = 8000
 
 GAUGE_TABLEAU_SERVICE_STATUS: Gauge = Gauge(
     name="tableau_service_status",
-    documentation="description",
+    documentation="Tableau services statuses",
     labelnames=[
         "node_id",
         "service_name",

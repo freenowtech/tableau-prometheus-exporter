@@ -31,21 +31,21 @@ Metrics Example
 
 .. code-block::
 
-    # HELP tableau_service_status description
+    # HELP tableau_service_status Tableau services statuses
     # TYPE tableau_service_status gauge
-    tableau_service_status{instance_id="0",node_id="node2",service_name="filestore",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="authnservice",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="databasemaintenance",status="Stopped"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="dataserver",status="Active"} 1.0
-    tableau_service_status{instance_id="1",node_id="node2",service_name="dataserver",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="cacheserver",status="Active"} 1.0
-    tableau_service_status{instance_id="1",node_id="node2",service_name="cacheserver",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="interactive",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="searchserver",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="statsservice",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="vizportal",status="Active"} 1.0
-    tableau_service_status{instance_id="1",node_id="node2",service_name="vizportal",status="Active"} 1.0
-    tableau_service_status{instance_id="0",node_id="node2",service_name="backuprestore",status="Stopped"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="filestore",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="authnservice",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="databasemaintenance",state="Disabled",status="Stopped"} 0.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="dataserver",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="1",node_id="node2",service_name="dataserver",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="cacheserver",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="1",node_id="node2",service_name="cacheserver",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="interactive",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="searchserver",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="statsservice",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="vizportal",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="1",node_id="node2",service_name="vizportal",state="Enabled",status="Active"} 1.0
+    tableau_service_status{instance_id="0",node_id="node2",service_name="backuprestore",state="Disabled",status="Stopped"} 0.0
 
 
 --------------------
@@ -88,6 +88,25 @@ Configuration
 
 A sample configuration can be found at
 `samples/config.yaml.template <https://github.com/freenowtech/tableau-prometheus-exporter/blob/main/samples/config.yaml.template>`_
+
+---------
+Dashboard
+---------
+
+A sample Grafana Dashboard can be found at
+`samples/grafana.json <https://github.com/freenowtech/tableau-prometheus-exporter/blob/main/samples/grafana.json>`_
+
+.. image:: samples/dashboard.jpeg
+    :width: 80%
+    :align: center
+    :alt: Grafana Dashboard
+
+--------
+Alerting
+--------
+
+A sample of prometheus alert can be found at
+`samples/prometheus.yaml <https://github.com/freenowtech/tableau-prometheus-exporter/blob/main/samples/prometheus.yaml>`_
 
 ------------
 Contributing

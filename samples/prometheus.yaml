@@ -1,0 +1,22 @@
+groups:
+  - name: tableau-service-status-alerts
+    rules:
+      - alert: TableauImpaired
+        expr:
+          avg(tableau_service_status{state="Enabled"}) < 1
+        for: 30m
+        labels:
+          severity: warning
+        annotations:
+          title: 'Tableau is Impaired'
+          description: 'One or more Tableau services are down for more than 30 minutes'
+
+      - alert: TableauDown
+        expr:
+          avg(tableau_service_status{state="Enabled"}) == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          title: 'Tableau is Down'
+          description: 'All Tableau Services are down for more than 5 minutes'
