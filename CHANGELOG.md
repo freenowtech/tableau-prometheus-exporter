@@ -8,6 +8,7 @@
 - Improve README and add more samples
 
 ### Update
+- Update CHANGELOG
 - Update CHANGELOG.md
 
 ### Pull Requests
